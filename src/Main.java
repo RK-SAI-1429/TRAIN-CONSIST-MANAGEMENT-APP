@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
+import java.util.LinkedHashSet;
 
 public class TrainConsistManagementApp {
 
@@ -34,32 +35,39 @@ public class TrainConsistManagementApp {
         System.out.println("\nUnique Bogie IDs:");
         System.out.println(bogieIDs);
 
-        // ---------------- UC4 START ----------------
-
-        // Create LinkedList for ordered train consist
+        // ---------------- UC4 ----------------
         LinkedList<String> consist = new LinkedList<>();
-
-        // Add bogies in order
         consist.add("Engine");
         consist.add("Sleeper");
         consist.add("AC");
         consist.add("Cargo");
         consist.add("Guard");
 
-        System.out.println("\nInitial Train Consist:");
-        System.out.println(consist);
-
-        // Insert Pantry Car at position 2
         consist.add(2, "Pantry Car");
-
-        // Remove first and last bogie
         consist.removeFirst();
         consist.removeLast();
 
-        // Final ordered consist
-        System.out.println("\nFinal Train Consist:");
+        System.out.println("\nFinal Train Consist (LinkedList):");
         System.out.println(consist);
 
-        // ---------------- UC4 END ----------------
+        // ---------------- UC5 START ----------------
+
+        // Create LinkedHashSet for ordered + unique bogies
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
+
+        // Add bogies
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+
+        // Attempt duplicate
+        formation.add("Sleeper"); // duplicate (ignored)
+
+        // Display final formation
+        System.out.println("\nFinal Train Formation (LinkedHashSet):");
+        System.out.println(formation);
+
+        // ---------------- UC5 END ----------------
     }
 }
