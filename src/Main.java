@@ -52,7 +52,7 @@ public class TrainConsistManagementApp {
 
         // ---------------- UC5 START ----------------
 
-        // Create LinkedHashSet for ordered + unique bogies
+        // Create LinkedHashSet
         LinkedHashSet<String> formation = new LinkedHashSet<>();
 
         // Add bogies
@@ -61,11 +61,11 @@ public class TrainConsistManagementApp {
         formation.add("Cargo");
         formation.add("Guard");
 
-        // Attempt duplicate
-        formation.add("Sleeper"); // duplicate (ignored)
+        // Add duplicate
+        formation.add("Sleeper"); // ignored automatically
 
-        // Display final formation
-        System.out.println("\nFinal Train Formation (LinkedHashSet):");
+        // Display formation
+        System.out.println("\nTrain Formation (LinkedHashSet):");
         System.out.println(formation);
 
         // ---------------- UC5 END ----------------
