@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TrainConsistManagementApp {
 
@@ -7,40 +9,36 @@ public class TrainConsistManagementApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // UC1: Initialize empty train consist
+        // ---------------- UC1 ----------------
         List<String> trainConsist = new ArrayList<>();
         System.out.println("Train consist initialized.");
         System.out.println("Initial number of bogies: " + trainConsist.size());
 
-        // ---------------- UC2 START ----------------
-
-        // Create passenger bogie list
+        // ---------------- UC2 ----------------
         List<String> passengerBogies = new ArrayList<>();
-
-        // Add bogies
         passengerBogies.add("Sleeper");
         passengerBogies.add("AC Chair");
         passengerBogies.add("First Class");
 
-        // Display after adding
-        System.out.println("\nPassenger Bogies after addition:");
+        System.out.println("\nPassenger Bogies:");
         System.out.println(passengerBogies);
 
-        // Remove a bogie (AC Chair)
-        passengerBogies.remove("AC Chair");
+        // ---------------- UC3 START ----------------
 
-        // Display after removal
-        System.out.println("\nAfter removing AC Chair:");
-        System.out.println(passengerBogies);
+        // Create HashSet for unique bogie IDs
+        Set<String> bogieIDs = new HashSet<>();
 
-        // Check existence of Sleeper
-        boolean exists = passengerBogies.contains("Sleeper");
-        System.out.println("\nIs Sleeper present? " + exists);
+        // Add bogie IDs (including duplicates)
+        bogieIDs.add("BG101");
+        bogieIDs.add("BG102");
+        bogieIDs.add("BG103");
+        bogieIDs.add("BG101"); // duplicate
+        bogieIDs.add("BG102"); // duplicate
 
-        // Final state
-        System.out.println("\nFinal Passenger Bogies:");
-        System.out.println(passengerBogies);
+        // Display unique bogie IDs
+        System.out.println("\nUnique Bogie IDs:");
+        System.out.println(bogieIDs);
 
-        // ---------------- UC2 END ----------------
+        // ---------------- UC3 END ----------------
     }
 }
