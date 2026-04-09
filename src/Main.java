@@ -11,7 +11,7 @@ class Bogie {
     }
 
     public String toString() {
-        return name + " - Capacity: " + capacity;
+        return name + " (" + capacity + ")";
     }
 }
 
@@ -21,26 +21,30 @@ public class TrainConsistManagementApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // ---------------- UC7 (Base Data) ----------------
+        // Create bogie list
         List<Bogie> bogies = new ArrayList<>();
         bogies.add(new Bogie("Sleeper", 72));
         bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("Sleeper", 70));
         bogies.add(new Bogie("First Class", 40));
+        bogies.add(new Bogie("AC Chair", 60));
 
         System.out.println("\nAll Bogies:");
         bogies.forEach(System.out::println);
 
-        // ---------------- UC8 START ----------------
+        // ---------------- UC9 START ----------------
 
-        // Filter bogies with capacity > 60
-        List<Bogie> filteredBogies = bogies.stream()
-                .filter(b -> b.capacity > 60)
-                .collect(Collectors.toList());
+        // Group bogies by name/type
+        Map<String, List<Bogie>> groupedBogies = bogies.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
 
-        // Display filtered bogies
-        System.out.println("\nFiltered Bogies (Capacity > 60):");
-        filteredBogies.forEach(System.out::println);
+        // Display grouped result
+        System.out.println("\nGrouped Bogies (by Type):");
 
-        // ---------------- UC8 END ----------------
+        for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+        // ---------------- UC9 END ----------------
     }
 }
