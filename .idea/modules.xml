@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/B1P17_RA2411026010778.iml" filepath="$PROJECT_DIR$/.idea/B1P17_RA2411026010778.iml" />
       <module fileurl="file://$PROJECT_DIR$/TrainConsistantApp/TrainConsistantApp.iml" filepath="$PROJECT_DIR$/TrainConsistantApp/TrainConsistantApp.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/TRAIN-CONSIST-MANAGEMENT-APP.iml" filepath="$PROJECT_DIR$/TRAIN-CONSIST-MANAGEMENT-APP.iml" />
+>>>>>>> d50d4ce (Base application setup)
     </modules>
   </component>
 </project>
