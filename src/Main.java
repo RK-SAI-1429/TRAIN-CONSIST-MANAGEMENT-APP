@@ -1,9 +1,20 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.LinkedList;
-import java.util.LinkedHashSet;
+import java.util.*;
+
+class Bogie {
+    String name;
+    int capacity;
+
+    // Constructor
+    Bogie(String name, int capacity) {
+        this.name = name;
+        this.capacity = capacity;
+    }
+
+    // Display method
+    public String toString() {
+        return name + " - Capacity: " + capacity;
+    }
+}
 
 public class TrainConsistManagementApp {
 
@@ -11,63 +22,31 @@ public class TrainConsistManagementApp {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // ---------------- UC1 ----------------
-        List<String> trainConsist = new ArrayList<>();
-        System.out.println("Train consist initialized.");
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        // ---------------- UC7 START ----------------
 
-        // ---------------- UC2 ----------------
-        List<String> passengerBogies = new ArrayList<>();
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Create list of bogies
+        List<Bogie> bogies = new ArrayList<>();
 
-        System.out.println("\nPassenger Bogies:");
-        System.out.println(passengerBogies);
+        // Add bogies with capacities
+        bogies.add(new Bogie("Sleeper", 72));
+        bogies.add(new Bogie("AC Chair", 56));
+        bogies.add(new Bogie("First Class", 40));
 
-        // ---------------- UC3 ----------------
-        Set<String> bogieIDs = new HashSet<>();
-        bogieIDs.add("BG101");
-        bogieIDs.add("BG102");
-        bogieIDs.add("BG103");
-        bogieIDs.add("BG101"); // duplicate
+        // Display before sorting
+        System.out.println("\nBefore Sorting:");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
 
-        System.out.println("\nUnique Bogie IDs:");
-        System.out.println(bogieIDs);
+        // Sort using Comparator (by capacity)
+        bogies.sort(Comparator.comparingInt(b -> b.capacity));
 
-        // ---------------- UC4 ----------------
-        LinkedList<String> consist = new LinkedList<>();
-        consist.add("Engine");
-        consist.add("Sleeper");
-        consist.add("AC");
-        consist.add("Cargo");
-        consist.add("Guard");
+        // Display after sorting
+        System.out.println("\nAfter Sorting (by Capacity):");
+        for (Bogie b : bogies) {
+            System.out.println(b);
+        }
 
-        consist.add(2, "Pantry Car");
-        consist.removeFirst();
-        consist.removeLast();
-
-        System.out.println("\nFinal Train Consist (LinkedList):");
-        System.out.println(consist);
-
-        // ---------------- UC5 START ----------------
-
-        // Create LinkedHashSet
-        LinkedHashSet<String> formation = new LinkedHashSet<>();
-
-        // Add bogies
-        formation.add("Engine");
-        formation.add("Sleeper");
-        formation.add("Cargo");
-        formation.add("Guard");
-
-        // Add duplicate
-        formation.add("Sleeper"); // ignored automatically
-
-        // Display formation
-        System.out.println("\nTrain Formation (LinkedHashSet):");
-        System.out.println(formation);
-
-        // ---------------- UC5 END ----------------
+        // ---------------- UC7 END ----------------
     }
 }
